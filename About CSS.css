@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: silver;
+}
+
+.header {
+    background-color: black;
+    padding: 10px;
+
+}
+
+.Textt {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.Textt p {
+    margin-bottom: 20px;
+
+}

@@ -1,0 +1,13 @@
+nav li {
+    display: inline;
+    
+    padding: 2px 40px;
+}
+nav a {
+    color: white;
+    
+}
+a:hover{
+    color: red;
+
+}

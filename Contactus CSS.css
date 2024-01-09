@@ -1,0 +1,20 @@
+a:link {
+
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+a:visited {}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: purple;
+
+}
+
+p {
+    color: white
+}

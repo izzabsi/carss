@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Purchase Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+    <style>
+      .error {
+         color:  red;
+        text-decoration: double;
+        }
+      h4 {
+            color: aliceblue;
+            text-align: right;
+        }
+*{
+            box-sizing: border-box;
+        }
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#f1f1f1;
+        }
+
+ header {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+form{
+border: solid purple 15px ;
+}
+
+@media screen and (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+        }
+
+nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }      
+nav li {
+    display: inline;
+    
+    padding: 2px 40px;
+}
+nav a {
+    color: white;
+    
+}
+a:hover{
+    color: red;
+
+}
+@media screen and (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    form {
+        width: 100%;
+        padding-right: 10px;
+        margin: auto;
+    }
+}
+      p#message {
+            color: #333;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <header>   
+        <a href="index.html"> <img src="logo.png" width="" height="50"></a>
+
+        <nav>
+               
+
+            <ul style="text-align: center;">
+
+                <li><a href ="About.html"> About us </a></li> 
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="Contactus.html"> Contact Us </a></li>
+                <li><a href="sitemap.html">SiteMap</a></li>  
+                <li><a href="reviews.html">Reviews</a></li> 
+                <li><a href="alooo.html">Car Purchase</a></li>  
+ 
+        </ul>
+        <script src="Date and time.js"></script>
+         </nav> 
+         <hr>
+    
+        
+
+    </header>
+   
+    <form>
+        <h2>Car Purchase Calculator</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <span id="nameError" class="error"></span>
+        <br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" required>
+        <span id="ageError" class="error"></span>
+        <br>
+        <label for="num">Number of Cars Desired</label>
+        <input type="number" id="num" required>
+        <span id="numError" class="error"></span>
+        <br>
+        <label>Select Payment Method:</label>
+        <div>
+            <input type="radio" id="cash" name="payment" value="1" required>
+            <label for="cash">Cash</label>
+    
+            <input type="radio" id="monthlyFees" name="payment" value="1.2" required>
+            <label for="monthlyFees">Monthly Fees</label>
+        </div>
+    
+        <button type="button" value="Submit" onclick="calculatePrice()">Calculate Price</button>
+    
+        <p id="message"></p>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function calculatePrice() {
+            var price;
+   
+            var NumOfCar = parseInt(document.getElementById("num").value);
+
+            if (!isNaN(NumOfCar)) {
+                if (NumOfCar == 1)
+                    price = 21000;
+                else if (NumOfCar == 2)
+                    price = 31000;
+                else if (NumOfCar == 3)
+                    price = 118000;
+                else if (NumOfCar == 4)
+                    price = 47000;
+                else if (NumOfCar == 5)
+                    price = 27000;
+                else if (NumOfCar == 6)
+                    price = 3500;
+    }
+          
+            var age = document.getElementById("age").value;
+                var paymentMethod = document.querySelector('input[name="payment"]:checked');
+    
+                var message = document.getElementById("message");
+                var name = document.getElementById("name").value;
+    
+                document.getElementById("nameError").innerHTML = "";
+                document.getElementById("ageError").innerHTML = "";
+                if (name == "") {
+                    document.getElementById("nameError").innerHTML = "Please enter your name";
+                }
+    
+               
+                if  (age<=18) {
+                    document.getElementById("ageError").innerHTML = "you have to be an adult to buy a car";
+                }
+               
+                 if (age == "") {
+                    document.getElementById("ageError").innerHTML = "Please enter your age";
+                }
+                var NumOfCar = parseInt(document.getElementById("num").value);
+     if (isNaN(NumOfCar) || NumOfCar <= 0) {
+                document.getElementById("numError").innerHTML = "Please enter a valid number of cars";
+                return;
+            } else {
+                document.getElementById("numError").innerHTML = "";
+            }
+                if (name != "" && age != ""&& num != "") {
+                    if (paymentMethod) {
+                        var multiplier = parseFloat(paymentMethod.value);
+                        message.innerHTML = "Hi " + name + "! The total price for " + NumOfCar + " car(s) is $" + (price * multiplier).toFixed(2);
+                    } else  {
+                        message.innerHTML = "Please select a payment method.";
+                    }
+                
+                }
+    
+    
+       
+               
+            }
+        
+    </script>
+    
+</body>
+</html>
